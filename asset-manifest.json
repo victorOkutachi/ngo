@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ngo/static/css/main.4b102cc5.css",
+    "main.js": "/ngo/static/js/main.f67e1f6c.js",
+    "static/js/453.48b1a50a.chunk.js": "/ngo/static/js/453.48b1a50a.chunk.js",
+    "index.html": "/ngo/index.html",
+    "main.4b102cc5.css.map": "/ngo/static/css/main.4b102cc5.css.map",
+    "main.f67e1f6c.js.map": "/ngo/static/js/main.f67e1f6c.js.map",
+    "453.48b1a50a.chunk.js.map": "/ngo/static/js/453.48b1a50a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b102cc5.css",
+    "static/js/main.f67e1f6c.js"
+  ]
+}
