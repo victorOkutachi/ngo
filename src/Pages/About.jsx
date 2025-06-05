@@ -6,12 +6,12 @@ const About = () => {
         
         <div id='div for text and image' className='lg:flex lg:items-center lg:px-[159px] lg:justify-between'>
             
-            <div className='mt-[160px] lg:mt-[107px] px-12 lg:px-0' id='text and button div'>
-                <h2 className='text-[30px] lg:text-[40px] pt-[ font-bold'>
+            <div className='mt-[160px] lg:mt-[107px] px-6 lg:px-0' id='text and button div'>
+                <h2 className='text-[24px] lg:text-[40px] font-bold'>
                     About Us
                 </h2>
 
-                <p className='text-xl lg:text-[24px] mt-[42px] font-medium opacity-60 lg:max-w-[600px]'>
+                <p className='text-[16px] lg:text-[20px] mt-[42px] font-medium opacity-60 lg:max-w-[600px]'>
                     Founded on the belief that creativity is a powerful engine
                     for social transformation, we provide participants with 
                     hands-on training in music, visual arts, performance, and 
@@ -25,11 +25,12 @@ const About = () => {
                 
             </div>
 
-            <div style={{backgroundImage: `url(${process.env.PUBLIC_URL}/images/about.png)`, backgroundSize: 'cover',}} className='h-[432px] w-5/6 lg:w-[458px] mx-auto lg:mx-0 lg:h-[462px] mt-10 lg:mt-[217px]  ' id='image div'></div>
+            <div style={{backgroundImage: `url(${process.env.PUBLIC_URL}/images/about.png)`, backgroundSize: 'cover',}} className='h-[350px] w-11/12 lg:w-[458px] mx-auto lg:mx-0 lg:h-[462px] mt-10 lg:mt-[217px]  ' id='image div'></div>
             
         </div>
-        <button className='h-[44px] mt-10 lg:mt-0 mx-10 lg:mx-[159px] w-[207px] bg-[#E88E5E] text-xl font-semibold rounded-md text-white'>Get Involved</button>
-
+        <button className=' w-[150px] h-[44px] mt-10 lg:mt-0 mx-6 lg:mx-[159px] md:w-[150px] bg-white border-2 border-[#E88E5E] text-[16px] font-semibold  text-[#E88E5E]'>Get Involved</button>
+        
+        
     </div>
   )
 }
