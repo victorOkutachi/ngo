@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import About from "./Pages/About";
@@ -14,6 +15,7 @@ function App() {
       <About/>
       <Projects/>
       <Mission/>
+      <Footer/>
     </div>
   );
 }

@@ -4,9 +4,9 @@ import React from 'react';
 
 const Mission = () => {
   return (
-    <div className="p-4 md:px-[159px] bg-[rgba(56,161,255,0.07)] ">
+    <div className="p-10 md:px-[159px] bg-[rgba(56,161,255,0.07)] ">
       <div>
-        <h2 className='text-[24px] lg:text-[40px] font-bold mt-10'>Our Mission</h2>
+        <h2 className='text-[24px] lg:text-[40px] font-bold mt-10'>Our Mission & Activites</h2>
         <p className='text-[16px] lg:text-[20px] mt-[42px] font-medium opacity-60 mb-20'>
         Arts for Change empowers young people—especially those from underrepresented and marginalized
         communities—to harness creative expression as a catalyst for social inclusion, active citizenship, and 
