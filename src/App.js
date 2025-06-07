@@ -9,7 +9,7 @@ import Projects from "./Pages/Projects";
 
 function App() {
   return (
-    <div>
+    <div className="font-Lato">
       <Navbar/>
       <Hero/>
       <About/>

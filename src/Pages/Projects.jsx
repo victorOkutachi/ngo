@@ -1,194 +1,131 @@
 // src/components/Projects.jsx
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
-  // Refs for all elements we’ll animate:
-  const sectionRef      = useRef(null);
-  const progressRef     = useRef(null);
-  const titleRef        = useRef(null);
-  const lineRef         = useRef(null);
-  const subtitleRef     = useRef(null);
-  const imageWrapperRef = useRef(null);
-  const paraRef         = useRef(null);
-  const buttonRef       = useRef(null);
+  const titleRef         = useRef(null);
+  const lineRef          = useRef(null);
+  const subtitleRef      = useRef(null);
+  const imageWrapperRef  = useRef(null);
+  const paraContainerRef = useRef(null);
+  const buttonRef        = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // ───────────────────────────────────────────────────────────────────────────────
-    // 1) SECTION‐LEVEL PIN + PROGRESS BAR (unchanged)
+    // 1) FLOATING IMAGE (infinite loop, no ScrollTrigger)
     // ───────────────────────────────────────────────────────────────────────────────
-    gsap.to(progressRef.current, {
-      width: '100%',
-      ease: 'none',
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top top',
-        end: 'bottom+=200 top',
-        scrub: true,
-        pin: true,
-        anticipatePin: 1,
-        markers: false,
-      },
-      immediateRender: false,
+    if (imageWrapperRef.current) {
+      gsap.to(imageWrapperRef.current, {
+        y: 20,
+        duration: 2,
+        ease: 'power1.inOut',
+        yoyo: true,
+        repeat: -1,
+      });
+    }
+
+    // Common ScrollTrigger settings for text elements:
+    const scrollOpts = (triggerElem) => ({
+      trigger: triggerElem,
+      start: 'top 85%',
+      end: 'bottom top',
+      scrub: true,
+      markers: false,
     });
 
     // ───────────────────────────────────────────────────────────────────────────────
-    // 2) TITLE SLIDE + FADE + UNDERLINE GROW (unchanged)
+    // 2) TITLE ANIMATION (fade/slide in; reverses smoothly via scrub)
     // ───────────────────────────────────────────────────────────────────────────────
-    gsap.from(titleRef.current, {
-      y: -60,
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: titleRef.current,
-        start: 'top 85%',
-        toggleActions: 'play none none reverse',
-        markers: false,
-      },
-      immediateRender: false,
-    });
-
-    gsap.from(lineRef.current, {
-      scaleX: 0,
-      transformOrigin: 'left center',
-      duration: 1,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: titleRef.current,
-        start: 'top 87%',
-        toggleActions: 'play none none reverse',
-        markers: false,
-      },
-      immediateRender: false,
-    });
-
-    gsap.from(subtitleRef.current, {
-      y: 40,
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out',
-      delay: 0.2,
-      scrollTrigger: {
-        trigger: subtitleRef.current,
-        start: 'top 88%',
-        toggleActions: 'play none none reverse',
-        markers: false,
-      },
-      immediateRender: false,
-    });
+    if (titleRef.current) {
+      gsap.fromTo(
+        titleRef.current,
+        { opacity: 0, y: -40 },
+        {
+          opacity: 1,
+          y: 0,
+          ease: 'power3.out',
+          scrollTrigger: scrollOpts(titleRef.current),
+        }
+      );
+    }
 
     // ───────────────────────────────────────────────────────────────────────────────
-    // 3) IMAGE “REVEAL” + PARALLAX + ROTATION (unchanged)
+    // 3) UNDERLINE ANIMATION (scaleX from 0→1; reverses smoothly via scrub)
     // ───────────────────────────────────────────────────────────────────────────────
-    gsap.from(imageWrapperRef.current, {
-      scale: 1.2,
-      rotate: 5,
-      opacity: 0,
-      duration: 1.5,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: imageWrapperRef.current,
-        start: 'top 80%',
-        toggleActions: 'play none none reverse',
-        markers: false,
-      },
-      immediateRender: false,
-    });
-
-    gsap.to(imageWrapperRef.current, {
-      backgroundPosition: '50% 90%',
-      ease: 'none',
-      scrollTrigger: {
-        trigger: imageWrapperRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-        markers: false,
-      },
-      immediateRender: false,
-    });
-
-    gsap.to(imageWrapperRef.current, {
-      rotate: 2,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: imageWrapperRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-        markers: false,
-      },
-      immediateRender: false,
-    });
+    if (lineRef.current) {
+      gsap.fromTo(
+        lineRef.current,
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          ease: 'power3.out',
+          scrollTrigger: scrollOpts(titleRef.current),
+        }
+      );
+    }
 
     // ───────────────────────────────────────────────────────────────────────────────
-    // 4) PARAGRAPH SLIDE + FADE IN/OUT (simplified)
+    // 4) SUBTITLE ANIMATION (fade/slide in; reverses smoothly via scrub)
     // ───────────────────────────────────────────────────────────────────────────────
-    gsap.from(paraRef.current, {
-      y: 100,               // start 100px below
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: paraRef.current,
-        start: 'top 85%',   // when paragraph’s top hits 85% down viewport
-        toggleActions: 'play reverse play reverse',
-        markers: false,
-      },
-      immediateRender: false,
-    });
+    if (subtitleRef.current) {
+      gsap.fromTo(
+        subtitleRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          ease: 'power3.out',
+          scrollTrigger: scrollOpts(subtitleRef.current),
+        }
+      );
+    }
 
     // ───────────────────────────────────────────────────────────────────────────────
-    // 5) BUTTON POP‐IN + FADE‐OUT (unchanged)
+    // 5) PARAGRAPH BLOCKS ANIMATION (stagger fade/slide in; reverses smoothly via scrub)
     // ───────────────────────────────────────────────────────────────────────────────
-    const btnTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: buttonRef.current,
-        start: 'top 85%',
-        end: 'bottom 15%',
-        scrub: true,
-        markers: false,
-      },
-    });
-
-    btnTL.fromTo(
-      buttonRef.current,
-      { scale: 0.8, opacity: 0 },
-      { scale: 1, opacity: 1, ease: 'back.out(1.2)', duration: 0.5 },
-      0
-    );
-    btnTL.to(
-      buttonRef.current,
-      { y: -40, opacity: 0, ease: 'power3.in', duration: 0.5 },
-      0.5
-    );
+    if (paraContainerRef.current) {
+      const blocks = gsap.utils.toArray(paraContainerRef.current.children);
+      if (blocks.length > 0) {
+        gsap.fromTo(
+          blocks,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.3,
+            ease: 'power3.out',
+            scrollTrigger: scrollOpts(paraContainerRef.current),
+          }
+        );
+      }
+    }
 
     // ───────────────────────────────────────────────────────────────────────────────
-    // CLEANUP ON UNMOUNT
+    // 6) BUTTON ANIMATION (pop in; reverses smoothly via scrub)
     // ───────────────────────────────────────────────────────────────────────────────
+    if (buttonRef.current) {
+      gsap.fromTo(
+        buttonRef.current,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          ease: 'back.out(1.2)',
+          scrollTrigger: scrollOpts(buttonRef.current),
+        }
+      );
+    }
+
     return () => {
       ScrollTrigger.getAll().forEach((st) => st.kill());
     };
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-[#55A697] lg:px-[159px] overflow-hidden"
-    >
-      {/* ────────── PROGRESS BAR ────────── */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-white/20">
-        <div
-          ref={progressRef}
-          className="h-full bg-white transform origin-left"
-          style={{ width: '0%' }}
-        />
-      </div>
-
+    <section className="relative bg-[#55A697] lg:px-[159px] overflow-hidden">
       {/* ────────── TITLE + SUBTITLE ────────── */}
       <div className="px-6 lg:px-0 pt-[50px]">
         <h2
@@ -199,7 +136,8 @@ const Projects = () => {
         </h2>
         <div
           ref={lineRef}
-          className="h-[3px] bg-white mt-2 w-full scale-x-0"
+          className="h-[3px] bg-white mt-2 w-[270px] lg:w-[450px] transform origin-left"
+          style={{ scaleX: 0 }}
         />
         <h3
           ref={subtitleRef}
@@ -220,26 +158,35 @@ const Projects = () => {
         }}
       />
 
-      {/* ────────── PARAGRAPH + BUTTON ────────── */}
-      <div className="mt-[32px] px-6 lg:px-0">
-        {/* Paragraph now simply “slides up & fades in” when its top hits 85% down */}
-        <p
-          ref={paraRef}
-          className="text-[16px] lg:text-[20px] font-medium text-white mb-[52px] leading-relaxed max-w-[900px]"
+      {/* ────────── PARAGRAPH (3 wider blocks) + BUTTON ────────── */}
+      <div className="mt-[32px] px-6 lg:px-0 max-w-[1200px] mx-auto">
+        <div
+          ref={paraContainerRef}
+          className="space-y-4 mb-[52px] leading-relaxed"
         >
-          Unmute the Message is a youth empowerment initiative amplifying voices
-          from marginalized communities. The program equips participants with
-          creative, digital, and advocacy skills for active citizenship. It
-          tackles racism, discrimination, and inequality through artistic and
-          community engagement. Music, visual arts, and digital media are used
-          as powerful tools for social change. Workshops and collaborations build
-          confidence and promote intercultural dialogue. Youth are inspired to
-          lead and make a difference in their local environments. At least 80% of
-          participants will produce original works that champion inclusion and
-          equality.
-        </p>
+          <div className="text-[16px] lg:text-[20px] font-medium text-white">
+            Unmute the Message is a youth empowerment initiative amplifying voices
+            from marginalized communities, equipping participants with creative,
+            digital, and advocacy skills for active citizenship. It also tackles
+            racism, discrimination, and inequality through artistic and community
+            engagement by using music, visual arts, and digital media as avenues
+            for social change.
+          </div>
 
-        {/* Button remains “pop” + fade out with scrubbed timeline */}
+          <div className="text-[16px] lg:text-[20px] font-medium text-white">
+            Workshops and collaborations build confidence and promote intercultural
+            dialogue while inspiring youth to lead and make a difference in their
+            local environments. These sessions encourage participants to channel
+            their stories and experiences into original works that speak to
+            inclusion and equality.
+          </div>
+
+          <div className="text-[16px] lg:text-[20px] font-medium text-white">
+            Ultimately, at least 80% of participants will produce original works
+            that champion inclusion and equality across their communities.
+          </div>
+        </div>
+
         <button
           ref={buttonRef}
           className="text-white font-medium border-white border-2 py-2 px-6 hover:bg-[#E88E5E] hover:scale-105 transition-transform duration-200 mb-[60px] rounded-md"

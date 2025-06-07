@@ -43,7 +43,7 @@ const Navbar = () => {
         }
       >
         <div>
-          <img src='images/bdklogo.png' className='absolute top-5 left-10 h-20 cursor-pointer' />
+        <div style={{backgroundImage: `url(${process.env.PUBLIC_URL}/images/mosco.png)`, backgroundSize: 'contain',}} className='h-[50px] w-[50px] md:h-[70px] md:w-[70px] rounded-full ' id='image div'></div>
         </div>
         <ul className='uppercase p-4'>
           <li className='py-2 text-xl font-medium'>

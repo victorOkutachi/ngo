@@ -1,0 +1,35 @@
+/* Footer.css */
+
+/* 1) “Float” keyframes for the logo/image, with more movement and faster timing */
+@keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+  
+  /* Apply the float animation endlessly: 4s instead of 6s, and a larger translateY */
+  .floating {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  /* 2) Subtle “pulse” keyframes for the icons, with a bigger scale and faster timing */
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.12);
+    }
+  }
+  
+  /* Apply the pulse animation endlessly: 2.5s instead of 3.5s */
+  .icon-animate {
+    display: inline-block; /* so scale only affects the icon itself */
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  
