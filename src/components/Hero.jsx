@@ -72,7 +72,7 @@ const Hero = () => {
       <div className='lg:flex items-center lg:px-[159px] justify-between'>
 
         {/* TEXT BLOCK (initially invisible via `opacity-0`) */}
-        <div className='px-6 relative z-10'>
+        <div className='px-6 relative pt-3 z-10'>
           <h1
             ref={headingOneRef}
             className='text-[30px] lg:text-[48px] font-bold text-white opacity-0'

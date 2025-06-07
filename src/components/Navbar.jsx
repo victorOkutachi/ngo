@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <div className='flex w-full h-12 items-center justify-between p-10 bg-[#55A697] shadow-sm'>
-<div style={{backgroundImage: `url(${process.env.PUBLIC_URL}/images/mosco.png)`, backgroundSize: 'contain',}} className='h-[50px] w-[50px] md:h-[70px] md:w-[70px] rounded-full ' id='image div'></div>
+<div style={{backgroundImage: `url(${process.env.PUBLIC_URL}/images/mosco.PNG)`, backgroundSize: 'contain',}} className='h-[50px] w-[50px] md:h-[70px] md:w-[70px] rounded-full ' id='image div'></div>
 
       <ul className='hidden grid-cols-5 col-span-4 items-center md:flex'>
         {listItems.map((item) => (
