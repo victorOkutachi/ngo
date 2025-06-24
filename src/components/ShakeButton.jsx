@@ -17,13 +17,16 @@ const ShakeButton = ({ onClick, children }) => {
   }, []);
 
   return (
-    <button
+    <a href='https://docs.google.com/forms/d/e/1FAIpQLSfHsvozhEOZap5DkFgQTvpNlj2BN0i7bTacdTJlaP_3c-lSnw/viewform' target='blank'>
+      <button
       ref={btnRef}
       className="my-button"
       onClick={onClick}
     >
       Join The Movement
     </button>
+    </a>
+    
   );
 };
 

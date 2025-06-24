@@ -168,9 +168,12 @@ const Mission = () => {
             <div className="mission-content">
               <h2 className="text-lg font-semibold mb-2">{item.title}</h2>
               <p className="text-sm text-gray-600 mb-4">{item.desc}</p>
-              <button className="bg-white border-2 border-[#E88E5E] text-[16px] font-semibold text-[#E88E5E] px-4 py-2 hover:bg-[#E88E5E] hover:text-white transition">
-                Get Involved
+              <a href='https://www.canva.com/design/DAGow2hfZCI/kLPX6dOv84n4WOiRnzUVCA/edit?fbclid=PAZXh0bgNhZW0CMTEAAadpGq2HH0z6GsPi7SvwOEPauyCq4WIDK30y2HrFsi96bnfbzHRf-msMJNZ0PA_aem_CaY7SZ02gXr798pEgk_kpA' target='blank'>
+              <button className="bg-white border-2 border-[#E88E5E] text-[14px] font-semibold text-[#E88E5E] px-4 py-2 hover:bg-[#E88E5E] hover:text-white transition">
+                Learn More
               </button>
+              </a>
+              
             </div>
           </div>
         ))}
@@ -206,9 +209,11 @@ const Mission = () => {
             <div className="mission-content">
               <h2 className="text-lg font-semibold mb-2">{item.title}</h2>
               <p className="text-sm text-gray-600 mb-4">{item.desc}</p>
-              <button className="bg-white border-2 border-[#E88E5E] text-[16px] font-semibold text-[#E88E5E] px-4 py-2 hover:bg-[#E88E5E] hover:text-white transition">
-                Get Involved
+              <a href='https://www.canva.com/design/DAGow2hfZCI/kLPX6dOv84n4WOiRnzUVCA/edit?fbclid=PAZXh0bgNhZW0CMTEAAadpGq2HH0z6GsPi7SvwOEPauyCq4WIDK30y2HrFsi96bnfbzHRf-msMJNZ0PA_aem_CaY7SZ02gXr798pEgk_kpA' target='blank'>
+              <button className="bg-white border-2 border-[#E88E5E] text-[14px] font-semibold text-[#E88E5E] px-4 py-2 hover:bg-[#E88E5E] hover:text-white transition">
+                Learn More
               </button>
+              </a>
             </div>
           </div>
         ))}

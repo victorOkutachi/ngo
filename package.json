@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "firebase": "^11.9.1",
     "gsap": "^3.13.0",
     "react": "^19.0.0",
     "react-bits": "^1.0.5",

@@ -229,12 +229,16 @@ const About = () => {
       </div>
 
       {/* ======== BUTTON ======== */}
+
+      <a href='https://www.instagram.com/artistic_luxembourgers?igsh=MW95ZDMzdTh2dXgweA==' target='blank'>
       <button
         ref={buttonRef}
         className="w-[150px] h-[44px] mt-10 lg:mt-0 mx-6 lg:mx-[159px] md:w-[150px] bg-white border-2 border-[#E88E5E] hover:bg-[#E88E5E] hover:text-white text-[16px] font-semibold text-[#E88E5E]"
       >
         Get Involved
       </button>
+      </a>
+      
     </div>
   );
 };

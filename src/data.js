@@ -3,7 +3,7 @@ export const listItems = [
     {
         id: 1,
         desc: "Home",
-        path: 'home'
+        path: 'hero'
     },
 
     {
@@ -27,7 +27,7 @@ export const listItems = [
     {
         id: 5,
         desc: "Socials",
-        path: 'socials'
+        path: 'googleformembed'
     },
 
    

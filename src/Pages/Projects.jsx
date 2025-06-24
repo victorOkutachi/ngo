@@ -152,7 +152,7 @@ const Projects = () => {
         ref={imageWrapperRef}
         className="mx-auto lg:mx-0 mt-[32px] h-[300px] md:h-[500px] w-11/12 lg:w-[1207px] bg-gray-200 overflow-hidden rounded-xl"
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/images/smiles.png)`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/projectimage.jpeg)`,
           backgroundSize: 'cover',
           backgroundPosition: '50% 10%',
         }}
@@ -187,12 +187,15 @@ const Projects = () => {
           </div>
         </div>
 
+        <a href='https://www.instagram.com/p/DKfXEeJILbC/?igsh=MTdqaGh1d2N5ZjAyNg==' target={'_blank'}>
         <button
           ref={buttonRef}
           className="text-white font-medium border-white border-2 py-2 px-6 hover:bg-[#E88E5E] hover:scale-105 transition-transform duration-200 mb-[60px] rounded-md"
         >
+          
           Learn More
         </button>
+        </a>
       </div>
     </section>
   );
